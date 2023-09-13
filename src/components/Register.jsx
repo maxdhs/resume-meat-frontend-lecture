@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { API } from "../lib";
-import { useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -8,6 +8,8 @@ export default function Register() {
   const [error, setError] = useState("");
 
   const { setToken } = useOutletContext();
+
+  const navigate = useNavigate();
 
   async function handleRegister(e) {
     e.preventDefault();
@@ -25,6 +27,7 @@ export default function Register() {
     }
     setToken(info.token);
     localStorage.setItem("token", info.token);
+    navigate("/");
   }
 
   return (

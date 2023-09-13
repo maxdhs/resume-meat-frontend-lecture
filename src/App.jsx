@@ -34,10 +34,9 @@ export default function App() {
   useEffect(() => {
     fetchUser();
   }, [token]);
-
   return (
     <div>
-      <Navbar />
+      <Navbar user={user} setToken={setToken} setUser={setUser} />
       <Outlet context={{ projects, setToken }} />
     </div>
   );
