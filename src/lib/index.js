@@ -1,1 +1,1 @@
-export const API = "https://resume-meat-backend.onrender.com";
+export const API = "http://localhost:3000";
