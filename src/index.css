@@ -3,3 +3,8 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.summary-container {
+  padding: 10px;
+  border: 2px solid black;
+}

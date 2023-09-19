@@ -4,10 +4,22 @@ import { useEffect, useState } from "react";
 import { API } from "./lib";
 
 export default function App() {
-  const [projects, setProjects] = useState([
-    { id: 1, name: "Spammer" },
-    { id: 2, name: "Milkman" },
-    { id: 3, name: "Hungry Pets" },
+  const [summaries, setSummaries] = useState([
+    {
+      id: 1,
+      projectName: "spammer",
+      text: "Spammer was a fullstack application with React on the front end and Express, Node, and Prisma on the backend.",
+    },
+    {
+      id: 2,
+      projectName: "milkman",
+      text: "Milkman is a game built with react, requiring extensive use of timers.",
+    },
+    {
+      id: 3,
+      projectName: "hungryPets",
+      text: "hungry pets is a game built with react to keep pets alive using many event handlers in react",
+    },
   ]);
   const [token, setToken] = useState("");
   const [user, setUser] = useState({});
@@ -37,7 +49,7 @@ export default function App() {
   return (
     <div>
       <Navbar user={user} setToken={setToken} setUser={setUser} />
-      <Outlet context={{ projects, setToken }} />
+      <Outlet context={{ summaries, setToken }} />
     </div>
   );
 }

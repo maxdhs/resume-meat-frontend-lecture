@@ -1,13 +1,20 @@
 import { useOutletContext, useParams } from "react-router-dom";
+import NewSummary from "./NewSummary";
 
 export default function Project() {
-  const { projects } = useOutletContext();
-  const { projectId } = useParams();
-  const project = projects.find((_project) => _project.id === +projectId);
+  const { summaries } = useOutletContext();
+  const { projectName } = useParams();
+  const filteredSummaries = summaries.filter(
+    (summary) => summary.projectName === projectName
+  );
   return (
     <div>
-      <h1>Name: {project.name} </h1>
-      <h1>Id: {project.id}</h1>
+      {filteredSummaries.map((summary) => (
+        <div className="summary-container" key={summary.id}>
+          <p>{summary.text}</p>
+        </div>
+      ))}
+      <NewSummary />
     </div>
   );
 }
