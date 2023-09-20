@@ -12,6 +12,8 @@ export default function Project() {
       {filteredSummaries.map((summary) => (
         <div className="summary-container" key={summary.id}>
           <p>{summary.text}</p>
+          <p>Author: {summary.user.username}</p>
+          <p>Likes: </p>
         </div>
       ))}
       <NewSummary />
