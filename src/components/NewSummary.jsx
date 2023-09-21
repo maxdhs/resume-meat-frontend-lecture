@@ -29,7 +29,7 @@ export default function NewSummary() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="summary-form" onSubmit={handleSubmit}>
       <textarea
         onChange={(e) => setText(e.target.value)}
         value={text}

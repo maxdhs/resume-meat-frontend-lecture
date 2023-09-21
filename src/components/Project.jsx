@@ -40,7 +40,7 @@ export default function Project() {
   }
 
   return (
-    <div>
+    <div className="summaries-container">
       {filteredSummaries.map((summary) => (
         <div className="summary-container" key={summary.id}>
           <p>{summary.text}</p>

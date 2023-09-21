@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar({ user, setToken, setUser }) {
   function handleLogout() {
@@ -9,20 +9,23 @@ export default function Navbar({ user, setToken, setUser }) {
 
   return (
     <div className="navbar-container">
-      <Link to={"/"}>Resume 🍖</Link>
-      <Link to={"/projects"}>Projects</Link>
-
       {!user.id ? (
         <>
-          <Link to={"/login"}>Login</Link>
-          <Link to={"/register"}>Register</Link>
+          <NavLink to={"/login"}>Login</NavLink>
+          <NavLink to={"/register"}>Register</NavLink>
         </>
       ) : (
         <>
+          <NavLink to={"/projects/wikipedia"}>Wikipedia</NavLink>
+          <NavLink to={"/projects/numberguesser"}>Number Guesser</NavLink>
+          <NavLink to={"/projects/milkman"}>Milkman</NavLink>
+          <NavLink to={"/projects/hungrypets"}>Hungry Pets</NavLink>
+          <NavLink to={"/projects/spammer"}>Spammer</NavLink>
+          <NavLink to={"/projects/reddit"}>Reddit</NavLink>
           <span>Welcome {user.username}</span>
-          <Link onClick={handleLogout} to={"/"}>
+          <NavLink onClick={handleLogout} to={"/"}>
             Logout
-          </Link>
+          </NavLink>
         </>
       )}
     </div>
