@@ -10,13 +10,9 @@ export default function Project() {
   );
 
   async function handleLike(summary) {
-    // request to server to create like
-    const hasUserLiked = summary.likes.filter((like) => like.userId === user.id)
-      .length
-      ? true
-      : false;
+    const like = summary.likes.find((like) => like.userId === user.id);
     let res;
-    if (hasUserLiked) {
+    if (like) {
       res = await fetch(`${API}/likes`, {
         method: "DELETE",
         headers: {
@@ -24,7 +20,7 @@ export default function Project() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          likeId: summary.likes[0].id,
+          likeId: like.id,
         }),
       });
     } else {
