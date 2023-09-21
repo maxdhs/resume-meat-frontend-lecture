@@ -42,7 +42,7 @@ export default function App() {
   return (
     <div>
       <Navbar user={user} setToken={setToken} setUser={setUser} />
-      <Outlet context={{ summaries, setToken, token, fetchSummaries }} />
+      <Outlet context={{ summaries, setToken, token, fetchSummaries, user }} />
     </div>
   );
 }
